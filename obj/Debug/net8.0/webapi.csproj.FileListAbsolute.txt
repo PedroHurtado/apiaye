@@ -31,3 +31,4 @@ C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\obj\Debug\net
 C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\obj\Debug\net8.0\webapi.pdb
 C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\obj\Debug\net8.0\webapi.genruntimeconfig.cache
 C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\obj\Debug\net8.0\ref\webapi.dll
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\obj\Debug\net8.0\webapi.sourcelink.json

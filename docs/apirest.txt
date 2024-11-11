@@ -8,3 +8,45 @@ pizza:{
         {id,name,coste}
     ]
 }
+
+¿Cual es la uri?
+
+http://localhost:5007/pizzas
+
+1. Entidad debe de pluralizarse
+    pizza->pizzas
+    ingredient->ingredients
+2. No se deben de expresar acciones
+    /pizzas/add
+           ...
+    verbox http->GET,POST,PUT,DELETE
+3. No debe de utilizar formatos
+    .json
+    .xml 
+    accept:'application/json'|'application/xml'
+    constent-type:'application/json'|application/xml'
+    https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types
+
+    status codes
+
+    https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+1. Create
+
+path:/ingredients
+method:'POST'
+
+Request
+    content_type:'appplication/json'
+    {name,cost}->json
+Response
+    accept:'application/json'
+    {id,name,cost}->json
+
+OK                      ERROR
+201                     400->Bad request
+                        401->No autenticado
+                        403->No autorizado
+                        405->Not allowed
+                        415->Formato no permitido
+                        500->{1.timeout, 2. error(estamos en obras)}    
