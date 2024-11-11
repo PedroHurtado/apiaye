@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace webapi.features.ingredients{
 
+    public readonly record struct ResponseIngredient(Guid id, string name, decimal cost) { }
     
     //[Route("/ingredients")]
     [ApiController]
@@ -16,7 +17,8 @@ namespace webapi.features.ingredients{
             if(ingredient ==null){
                 return NotFound();
             }            
-            return Ok(ingredient);
+            var response = new ResponseIngredient(ingredient.Id, ingredient.Name,ingredient.Cost);
+            return Ok(response);
         }
     }
 }
