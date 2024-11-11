@@ -1,11 +1,12 @@
+using webapi.core;
+
 namespace webapi.domainpizza{
-    public class Ingredient{
-        public Guid Id {get;private set;}
+    public class Ingredient :EntityBase{
+        
         public string Name {get;private set;}
         public decimal Cost {get;private set;}
 
-        protected Ingredient(Guid id, string name, decimal cost){
-            Id = id;
+        protected Ingredient(Guid id, string name, decimal cost) :base(id){            
             Name = name;
             Cost = cost;
         }

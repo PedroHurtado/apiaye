@@ -1,15 +1,15 @@
-using Microsoft.Net.Http.Headers;
+using webapi.core;
 
-namespace webapi.domainpizza{
-    public class Pizza {
-        public Guid Id {get;init;}
+namespace webapi.domainpizza {
+    public class Pizza: EntityBase {
+        
         public string Name {get;private set;}
         public string Description {get;private set;}
         public string Url {get;private set;}
         private readonly ISet<Ingredient> Ingredients =  new HashSet<Ingredient>();
 
-        protected Pizza(Guid id, string name, string description, string url) {
-            Id = id;
+        protected Pizza(Guid id, string name, string description, string url): base(id)            
+        {            
             Name = name;
             Description = description;
             Url = url;
