@@ -69,4 +69,27 @@ OK                          ERROR
                             405
                             415
                             500    
+
+3. Get(Ingredients)
+    path:/ingredients}
+    method:GET
+    accept :"application/json"
+    request
+        body->no puede existir
+
+    response
+        [{
+        id,name,cost
+        }] | []
+OK                          ERROR
+200                         
+                            401
+                            403
+                            400
+                            405
+                            415
+                            500    
     
+    http://localhost:8080?name=car&size=25&page=1
+
+    [FromQuery]

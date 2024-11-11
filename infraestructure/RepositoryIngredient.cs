@@ -16,5 +16,9 @@ namespace webapi.infraestructure{
             return ingredients.Where(i=>i.Id == id).FirstOrDefault();
 
         }
+        public IEnumerable<Ingredient> GetAll()
+        {
+            return ingredients;
+        }
     }
 }
