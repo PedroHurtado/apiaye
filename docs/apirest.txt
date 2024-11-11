@@ -3,7 +3,7 @@ pizza:{
     name,
     description,
     url,
-    price->sum(coste ingredientes) * 1.2
+    price->sum(coste ingredientes) * 1.2(beneficio)
     ingredients:[
         {id,name,coste}
     ]

@@ -13,8 +13,10 @@ namespace webapi.domainpizza{
             Name = name;
             Cost = cost;
         }
-        public Ingredient Create(string name, decimal cost){
+        public static Ingredient Create(string name, decimal cost){
             return new Ingredient(Guid.NewGuid(), name,cost);            
         }
     }
+
+    
 }
