@@ -1,0 +1,10 @@
+pizza:{
+    id,
+    name,
+    description,
+    url,
+    price->sum(coste ingredientes) * 1.2
+    ingredients:[
+        {id,name,coste}
+    ]
+}
