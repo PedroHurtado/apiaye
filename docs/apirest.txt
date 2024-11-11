@@ -50,3 +50,23 @@ OK                      ERROR
                         405->Not allowed
                         415->Formato no permitido
                         500->{1.timeout, 2. error(estamos en obras)}    
+
+3. Get(Ingredients)
+    path:/ingredients/{id}
+    method:GET
+    accept :"application/json"
+    body->no puede existir
+
+    response
+    {
+        id,name,cost
+    }
+OK                          ERROR
+200                         404->Not found
+                            401
+                            403
+                            400
+                            405
+                            415
+                            500    
+    
