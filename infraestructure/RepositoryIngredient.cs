@@ -11,6 +11,13 @@ namespace webapi.infraestructure{
             ingredients.Add(ingredient);
         }
 
+        public void Delete(Ingredient ingredient)
+        {
+             if(ingredients.Contains(ingredient)){
+                ingredients.Remove(ingredient);
+            }
+        }
+
         public Ingredient? Get(Guid id)
         {   
             return ingredients.Where(i=>i.Id == id).FirstOrDefault();
@@ -19,6 +26,13 @@ namespace webapi.infraestructure{
         public IEnumerable<Ingredient> GetAll()
         {
             return ingredients;
+        }
+
+        public void Update(Ingredient ingredient)
+        {
+            if(ingredients.Contains(ingredient)){
+                ingredients.UnionWith([ingredient]);
+            }
         }
     }
 }

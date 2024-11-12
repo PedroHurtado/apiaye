@@ -93,3 +93,37 @@ OK                          ERROR
     http://localhost:8080?name=car&size=25&page=1
 
     [FromQuery]
+
+4. Update (/ingredients/{id})
+    path:/ingredients/{id}
+    method:PUT
+    accept :"application/json"
+    body->{}
+
+    response
+    {
+        id,name,cost
+    } | empty
+OK                          ERROR
+200                         404->Not found
+204                         401
+                            403
+                            400
+                            405
+                            415
+                            500    
+
+5. Remove (/ingredients/{id})
+    path:/ingredients/{id}
+    method:DELETE       
+
+    response
+        empty
+OK                          ERROR
+                            404->Not found
+204                         401
+                            403
+                            400
+                            405
+                            415
+                            500    

@@ -11,7 +11,7 @@ namespace webapi.features.ingredients{
         public GetIngredient(IRepositoryIngredient repositoryIngredient){
             this.repositoryIngredient = repositoryIngredient;
         }
-        [HttpGet("ingredients/{id}")]
+        [HttpGet("/ingredients/{id}")]
         public IActionResult get(Guid id){
             var ingredient = repositoryIngredient.Get(id);
             if(ingredient ==null){
