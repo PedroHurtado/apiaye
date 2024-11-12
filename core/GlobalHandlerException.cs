@@ -12,6 +12,7 @@ namespace webapi.core{
             }else{
                 problemDetails.Status = (int)StatusCodes.Status500InternalServerError;
             }
+            httpContext.Response.StatusCode = problemDetails.Status;
             await httpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken).ConfigureAwait(false);
             return true;
         }
