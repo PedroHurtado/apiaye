@@ -8,9 +8,9 @@ namespace webapi.core{
             var problemDetails = new ProblemDetails();
             problemDetails.Instance = httpContext.Request.Path;
             if(exception is NotFoundException){
-                problemDetails.Status = (int)StatusCodes.Status404NotFound;
+                problemDetails.Status = StatusCodes.Status404NotFound;
             }else{
-                problemDetails.Status = (int)StatusCodes.Status500InternalServerError;
+                problemDetails.Status = StatusCodes.Status500InternalServerError;
             }
             httpContext.Response.StatusCode = problemDetails.Status;
             await httpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken).ConfigureAwait(false);
