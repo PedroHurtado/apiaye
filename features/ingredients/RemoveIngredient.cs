@@ -11,10 +11,7 @@ namespace webapi.features.ingredients
         }
         [HttpDelete("/ingredients/{id}")]
         public ActionResult Delete(Guid id){
-            var ingredient = repositoryIngredient.Get(id);
-            if (ingredient == null){
-                return NotFound();
-            }
+            var ingredient = repositoryIngredient.Get(id);           
             repositoryIngredient.Delete(ingredient);
             return NoContent();
         }

@@ -1,4 +1,5 @@
 using Microsoft.Net.Http.Headers;
+using webapi.core;
 using webapi.domainpizza;
 
 namespace webapi.infraestructure{
@@ -18,9 +19,9 @@ namespace webapi.infraestructure{
             }
         }
 
-        public Ingredient? Get(Guid id)
+        public Ingredient Get(Guid id)
         {   
-            return ingredients.Where(i=>i.Id == id).FirstOrDefault();
+            return ingredients.Where(i=>i.Id == id).OrElseThrow(new NotFoundException());
 
         }
         public IEnumerable<Ingredient> GetAll()

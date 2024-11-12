@@ -14,10 +14,7 @@ namespace webapi.features.ingredients{
 
         [HttpPut("/ingredients/{id}")]
         public IActionResult Update(Guid id, [FromBody]UpdateIngredientRequest request) { 
-            var ingredient = repositoryIngredient.Get(id);
-            if(ingredient == null){
-                return NotFound();
-            }
+            var ingredient = repositoryIngredient.Get(id);            
             ingredient.Update(request.name, request.cost);
             return NoContent();
         }

@@ -13,10 +13,7 @@ namespace webapi.features.ingredients{
         }
         [HttpGet("/ingredients/{id}")]
         public IActionResult get(Guid id){
-            var ingredient = repositoryIngredient.Get(id);
-            if(ingredient ==null){
-                return NotFound();
-            }            
+            var ingredient = repositoryIngredient.Get(id);                  
             var response = new ResponseIngredient(ingredient.Id, ingredient.Name,ingredient.Cost);
             return Ok(response);
         }
