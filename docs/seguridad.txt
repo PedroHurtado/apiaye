@@ -1,0 +1,68 @@
+1. Autenticacion
+    1.1 user+pwd (https)   (ACL) ISP
+    1.2 oauth
+
+Servidor->Web,Mobile,Server
+
+Cookies
+    Web
+
+    Set Cookie HttpOnly->document.cookies
+               Secure->https
+
+    Request->browser->server
+        Cookie
+
+Token JWT(Json Web Token)
+    Web   
+    Mobile
+    Server
+JWT
+    const parts = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'.split('.')
+
+    ['eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9', 'eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ', 'SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c']
+    atob(part[0])->json->codificado en base64
+    atob(part[1])->json->codificado en base64
+    atob(parts[2])->secure
+
+    Se almacena en el cliente
+    Enviarlo al servidor
+
+    fetch(url.{
+        headers:{
+            authentication: bearer <token>
+        }
+    })
+
+    Verifica su reconstruccion, verifica que no ha caducado
+
+    3600s->1hora
+    caduda->/refresh
+
+    Donde guarda el cliente el token
+
+    Mobile->app storage
+    Server->bb.dd
+    Web->
+            LocalStorage
+                1. Cada vez que se accede a un valor(serializacion/deserializacion)
+                    JSON.parse
+                    JSON.stringify
+                2. El acceso es sincrono->bloqueante
+                3. No es accesiable desde ningun thread que
+                    no se el principal
+            IndexDb
+                1. No requier serializacion
+                2. Acceso es asincrono->no bloqueante
+                3. Puede trabajar con hilos distintos al principal
+            
+            XSS(10)
+            https://www.w3.org/TR/CSP3/
+
+            content-security-policy:
+
+No tiene estado->Web,Mobile,Server
+
+
+
+

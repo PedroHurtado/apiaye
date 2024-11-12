@@ -1,0 +1,6 @@
+1. Configurar cors en una api
+2. Autentica una api y garantizar
+3. Pasar datos por cabeceras a los controladores
+    http://localhost:8080/52803357A
+4. Validar->Validacion->Api->Fluent Validation
+5. Vertical slice

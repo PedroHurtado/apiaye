@@ -1,0 +1,30 @@
+Web->Cors
+
+    Por definicion una llamada fetch es insegura excepto que 
+    se active cors
+
+    Origin                      Destino
+    http://localhost:8080       http://localhost:8081
+
+    ajax
+        fetch
+        XmlHttpRequest
+
+    Origin:http://localhost:8080
+
+    Access-Control-Allow-Origin: * | http://ayesa.com
+
+    *--> No puedo desde ayesa authentication basada en cookie
+    dominio-->puedo hacerlo por cookie
+
+    CSRF->get,post,put,delete -> usuario este autenticado
+
+    Access-Control-Allow-Credentials:true
+
+    *->no es valido
+
+    Access-Control-Allow-Methods:GET,POST,PUT,DELETE
+
+    OPTIONS+GET
+
+    Access-Control-Max-Age : SEGUNDOS
