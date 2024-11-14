@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "31IuTefl9Mk=",
+  "dgSpecHash": "XoYeSCrz/TI=",
   "success": true,
   "projectFilePath": "C:\\Users\\Home\\Documents\\Cursos 2024\\11-noviembre\\.Net Ayesa\\webapi\\webapi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Home\\.nuget\\packages\\fluentvalidation\\11.10.0\\fluentvalidation.11.10.0.nupkg.sha512",
     "C:\\Users\\Home\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.0\\microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",
     "C:\\Users\\Home\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.8\\microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
     "C:\\Users\\Home\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

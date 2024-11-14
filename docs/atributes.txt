@@ -1,0 +1,20 @@
+Class Header
+
+[ApiController]
+[Route] "/ingredients"
+
+Actions
+
+[HttpGet]           /{id}               /ingredients/1
+[HttpPost]          [FromBody]
+[HttpPut]           /{id} [FromBody]
+[HttpDelete]        /{id}
+
+[HttpGet]           ?name=c&page=1&size=25      [FromnQuery]
+
+[FromHeader]
+
+Request
+Response
+
+Heredar de ControllerBase
