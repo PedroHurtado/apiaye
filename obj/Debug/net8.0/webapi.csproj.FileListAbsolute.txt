@@ -32,3 +32,11 @@ C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\obj\Debug\net
 C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\obj\Debug\net8.0\webapi.genruntimeconfig.cache
 C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\obj\Debug\net8.0\ref\webapi.dll
 C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\obj\Debug\net8.0\webapi.sourcelink.json
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

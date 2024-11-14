@@ -2,13 +2,24 @@
 using webapi.core;
 using webapi.infraestructure;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<IRepositoryIngredient,RepositoryIngredient>();
+builder.Services.AddScoped<IRepositoryIngredient, RepositoryIngredient>();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyAllowSpecificOrigins, policy =>
+    {
+        policy.WithOrigins("*")
+            .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+        policy.SetPreflightMaxAge(TimeSpan.FromSeconds(3600));
+    });
+});
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -34,7 +45,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -48,6 +59,7 @@ app.MapGet("/weatherforecast", () =>
 .WithOpenApi();
 
 app.MapControllers();
+app.UseCors(MyAllowSpecificOrigins);
 
 app.Run();
 
