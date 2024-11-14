@@ -17,8 +17,10 @@ namespace webapi.features.ingredients{
             this.repositoryIngredient = repositoryIngredient;
         }
         [HttpGet("/ingredients")]
-        public IActionResult getAll([FromQuery] Query query){            
+        public IActionResult getAll([FromQuery] Query query, [FromHeader(Name = "X-Dni")] string dni ){            
+            
             Console.WriteLine(query);
+            Console.WriteLine(dni);
             return Ok(
                 repositoryIngredient.GetAll().Select(i=>new ReposeIngredintAll(
                     i.Id,i.Name,i.Cost

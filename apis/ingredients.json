@@ -1,0 +1,343 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Demo API",
+      "version": "v1"
+    },
+    "paths": {
+      "/ingredients": {
+        "post": {
+          "tags": [
+            "AddIngredient"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Request"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Request"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Request"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "GetIngredientAll"
+          ],
+          "parameters": [
+            {
+              "name": "Name",
+              "in": "query",
+              "style": "form",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "Page",
+              "in": "query",
+              "style": "form",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "Size",
+              "in": "query",
+              "style": "form",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "X-Dni",
+              "in": "header",
+              "style": "simple",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/ingredients/{id}": {
+        "get": {
+          "tags": [
+            "GetIngredient"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "RemoveIngredient"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "UpdateIngredient"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateIngredientRequest"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateIngredientRequest"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateIngredientRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/weatherforecast": {
+        "get": {
+          "tags": [
+            "webapi"
+          ],
+          "operationId": "GetWeatherForecast",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/WeatherForecast"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/login": {
+        "post": {
+          "tags": [
+            "webapi"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "DateOnly": {
+          "type": "object",
+          "properties": {
+            "year": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "month": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "day": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "dayOfWeek": {
+              "$ref": "#/components/schemas/DayOfWeek"
+            },
+            "dayOfYear": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            },
+            "dayNumber": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "DayOfWeek": {
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "type": "integer",
+          "format": "int32"
+        },
+        "Request": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "cost": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "additionalProperties": false
+        },
+        "UpdateIngredientRequest": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "cost": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "additionalProperties": false
+        },
+        "User": {
+          "type": "object",
+          "properties": {
+            "userName": {
+              "type": "string",
+              "nullable": true
+            },
+            "password": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "WeatherForecast": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "$ref": "#/components/schemas/DateOnly"
+            },
+            "temperatureC": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "summary": {
+              "type": "string",
+              "nullable": true
+            },
+            "temperatureF": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "securitySchemes": {
+        "Bearer": {
+          "type": "http",
+          "description": "Please enter a valid token",
+          "scheme": "Bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    },
+    "security": [
+      {
+        "Bearer": [ ]
+      }
+    ]
+  }
