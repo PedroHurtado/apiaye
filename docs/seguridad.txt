@@ -30,7 +30,7 @@ JWT
 
     fetch(url.{
         headers:{
-            authentication: bearer <token>
+            Authorization: bearer <token>
         }
     })
 
@@ -39,7 +39,7 @@ JWT
     3600s->1hora
     caduda->/refresh
 
-    Donde guarda el cliente el token
+    Donde guarda en el cliente el token
 
     Mobile->app storage
     Server->bb.dd
