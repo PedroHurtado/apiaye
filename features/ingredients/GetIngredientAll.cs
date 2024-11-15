@@ -22,6 +22,7 @@ namespace webapi.features.ingredients{
             Console.WriteLine(query);
             Console.WriteLine(dni);
             return Ok(
+                //repositoryIngredient.GetAll();
                 repositoryIngredient.GetAll().Select(i=>new ReposeIngredintAll(
                     i.Id,i.Name,i.Cost
                 ))

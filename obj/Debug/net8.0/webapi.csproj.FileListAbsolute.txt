@@ -40,3 +40,5 @@ C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net
 C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\apis\ingredients.json
+C:\Users\Home\Documents\Cursos 2024\11-noviembre\.Net Ayesa\webapi\bin\Debug\net8.0\FluentValidation.dll

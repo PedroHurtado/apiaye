@@ -1,0 +1,149 @@
+Object relational Mapping(SQL)
+BB.DD No sql->MongoDb->No ocurre
+- Inpedance Mismatch
+https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch
+  
+  Pizzas->Ingredients(n:m)
+
+  IdPizza   IdIngrediente
+  1         1
+  1         2
+  2         3
+
+  1. Crear tabla Pizzas
+  2. Crear tabla Ingredients
+  3. Crear tabla Pizza_Ingredients
+
+  https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many
+
+1. Crear una propiedad de navegacion en la entidad tags(Bad)
+    var tags = new Tags()
+    tags.Post->o tengo un indice o la carga va a ser lenta
+public class Post
+{
+    public int Id { get; set; }
+    public List<Tag> Tags { get; } = [];
+}
+
+public class Tag
+{
+    public int Id { get; set; }
+    public List<Post> Posts { get; } = [];
+}
+
+2. Crear los objetos sin propiedad de navegacion secundarias
+
+public class Post
+{
+    public int Id { get; set; }
+    public List<Tag> Tags { get; } = [];
+}
+
+public class Tag
+{
+    public int Id { get; set; }    
+}
+
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Post>()
+        .HasMany(e => e.Tags)
+        .WithMany();
+}
+
+2. UOW(Unit Of Work)
+    1. crear una pizza
+        {
+            name,description,url
+            Ingredients:[{id}{id}]
+        }
+    2. El controlador leera los Ingredients y los agrega a la pizza
+
+        insert into Pizza
+        insert into Pizza_Ingredients
+
+    try{
+        open connetion
+        begin transaction
+            insert
+            insert
+        commit transaction
+    }
+    cath(Exception e){
+        roolback transaction
+        trow e
+    }
+    finally{
+        close connection
+    }
+
+    modelo.saveChanges()
+
+    https://martinfowler.com/eaaCatalog/unitOfWork.html
+
+3. Repository Pattern
+
+    Get(Id)->Entidad
+    Add(Entitdad)->void
+    Update(Entidad)->void
+    Remove(Entidad)->void
+
+    Tracking
+
+    Es colocar entidades en el tracking
+
+    Entidad         Estado
+    Ingredient      add                 ->insert into
+    Ingredient      pending->updated    ->update set
+    Ingredient.name = "Piña"
+    Ingredient      pending->Remove     ->delete 
+
+    saveChanges()->UOW
+
+    try{
+        open connetion
+        begin transaction
+            insert
+            update
+            remove
+        commit transaction
+        elimina el tracking(liberar la memoria)
+    }
+    cath(Exception e){
+        roolback transaction
+        trow e
+    }
+    finally{
+        close connection
+    }
+
+    Ingredient.select(i=>i)->Tracking
+    Ingredient.select(i=>new {Name=i.Name})->No tracking
+    Ingredient.select(i=>i).AsNoTracking()
+
+    https://learn.microsoft.com/en-us/ef/core/querying/tracking
+
+Relaciones->
+    One-to-Many-> Facturas->Detalle de facturas
+    One-to-One->post->comments->user(null or not null)
+        Post->List<Coments>->User
+
+        Post.Select(p=>p)
+
+            Post+Coments+User(pwd)
+    Many-to-May     Pizza+Ingredient+PizzaIngredients
+
+Navigation Property
+
+    Principal->Secudaria (OK)
+    Secudaria->Principal (No)
+
+Conventions
+    string->VARCHAR(MAX)
+    Pizza->Pizza
+
+Alternativas
+    DAO->instrucciones sql
+    MicroOrm->Dapper
+
+    https://www.nuget.org/packages/dapper
